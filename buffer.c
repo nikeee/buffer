@@ -782,6 +782,7 @@ static void data_view_free(zend_object *object)
 	if (!Z_ISUNDEF(intern->buffer_zval)) {
 		zval_ptr_dtor(&intern->buffer_zval);
 	}
+	intern->buffer = NULL;
 	zend_object_std_dtor(&intern->std);
 }
 
