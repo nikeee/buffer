@@ -10,8 +10,11 @@ Test readonly properties and property access
 $buffer = new ArrayBuffer(16);
 $view = new DataView($buffer, 4, 8);
 
+echo "view->buffer === buffer = ";
 var_dump($view->buffer === $buffer);
+echo "view->byteOffset = ";
 var_dump($view->byteOffset);
+echo "view->byteLength = ";
 var_dump($view->byteLength);
 
 try {
@@ -36,19 +39,22 @@ try {
 }
 
 $view->setInt8(0, 42);
+echo "view->byteOffset after operation = ";
 var_dump($view->byteOffset);
+echo "view->byteLength after operation = ";
 var_dump($view->byteLength);
+echo "view->buffer === buffer after operation = ";
 var_dump($view->buffer === $buffer);
 
 ?>
 --EXPECT--
-bool(true)
-int(4)
-int(8)
+view->buffer === buffer = bool(true)
+view->byteOffset = int(4)
+view->byteLength = int(8)
 OK: byteOffset is readonly
 OK: byteLength is readonly
 OK: buffer is readonly
-int(4)
-int(8)
-bool(true)
+view->byteOffset after operation = int(4)
+view->byteLength after operation = int(8)
+view->buffer === buffer after operation = bool(true)
 

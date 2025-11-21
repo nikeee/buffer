@@ -10,7 +10,9 @@ Test DataView with zero-length buffer and edge cases
 $buffer = new ArrayBuffer(0);
 $view = new DataView($buffer);
 
+echo "zero-length buffer: byteOffset = ";
 var_dump($view->byteOffset);
+echo "zero-length buffer: byteLength = ";
 var_dump($view->byteLength);
 
 try {
@@ -30,7 +32,9 @@ try {
 $buffer2 = new ArrayBuffer(16);
 $view2 = new DataView($buffer2, 8, 0);
 
+echo "zero-length view: byteOffset = ";
 var_dump($view2->byteOffset);
+echo "zero-length view: byteLength = ";
 var_dump($view2->byteLength);
 
 try {
@@ -42,11 +46,11 @@ try {
 
 ?>
 --EXPECT--
-int(0)
-int(0)
+zero-length buffer: byteOffset = int(0)
+zero-length buffer: byteLength = int(0)
 OK: Read from zero-length buffer caught
 OK: Write to zero-length buffer caught
-int(8)
-int(0)
+zero-length view: byteOffset = int(8)
+zero-length view: byteLength = int(0)
 OK: Read from zero-length view caught
 

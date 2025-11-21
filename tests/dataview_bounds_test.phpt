@@ -75,9 +75,11 @@ try {
 }
 
 $view->setInt8(15, 42);
+echo "getInt8(15) at boundary = ";
 var_dump($view->getInt8(15));
 
 $view->setInt16(14, 0x1234, true);
+echo "getInt16(14) at boundary = ";
 var_dump(dechex($view->getInt16(14, true)));
 
 ?>
@@ -91,6 +93,6 @@ OK: Read out of bounds caught
 OK: Read overflow caught
 OK: Write out of bounds caught
 OK: Write overflow caught
-int(42)
-string(4) "1234"
+getInt8(15) at boundary = int(42)
+getInt16(14) at boundary = string(4) "1234"
 

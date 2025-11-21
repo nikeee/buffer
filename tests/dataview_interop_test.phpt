@@ -15,26 +15,31 @@ $view->setInt32(4, 0x87654321, true);
 
 $int32s = new Int32Array($buffer);
 // Use sprintf to handle negative numbers correctly
+echo "Int32Array[0] read from DataView = ";
 var_dump(sprintf("%08x", $int32s[0] & 0xFFFFFFFF));
+echo "Int32Array[1] read from DataView = ";
 var_dump(sprintf("%08x", $int32s[1] & 0xFFFFFFFF));
 
 $int32s[0] = 0xABCDEF00;
 $int32s[1] = 0x00FEDCBA;
 
+echo "DataView->getUint32(0) read from Int32Array = ";
 var_dump(sprintf("%08x", $view->getUint32(0, true) & 0xFFFFFFFF));
+echo "DataView->getUint32(4) read from Int32Array = ";
 var_dump(sprintf("%08x", $view->getUint32(4, true) & 0xFFFFFFFF));
 
 $view2 = new DataView($buffer, 0, 16);
 $view2->setFloat32(8, 3.14, true);
 
 $floats = new FloatArray($buffer);
+echo "FloatArray[2] read from DataView = ";
 var_dump(round($floats[2], 2));
 
 ?>
 --EXPECT--
-string(8) "12345678"
-string(8) "87654321"
-string(8) "abcdef00"
-string(8) "00fedcba"
-float(3.14)
+Int32Array[0] read from DataView = string(8) "12345678"
+Int32Array[1] read from DataView = string(8) "87654321"
+DataView->getUint32(0) read from Int32Array = string(8) "abcdef00"
+DataView->getUint32(4) read from Int32Array = string(8) "00fedcba"
+FloatArray[2] read from DataView = float(3.14)
 
