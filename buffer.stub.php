@@ -103,3 +103,33 @@ final class DoubleArray extends TypedArray {
      */
     public function offsetGet($offset): float {}
 }
+
+/** @strict-properties */
+final class DataView {
+    public readonly ArrayBuffer $buffer;
+    public readonly int $byteOffset;
+    public readonly int $byteLength;
+
+    public function __construct(ArrayBuffer $buffer, int $byteOffset = 0, ?int $byteLength = null) {}
+
+    public function getInt8(int $byteOffset): int {}
+    public function getUint8(int $byteOffset): int {}
+    public function getInt16(int $byteOffset, bool $littleEndian = false): int {}
+    public function getUint16(int $byteOffset, bool $littleEndian = false): int {}
+    public function getInt32(int $byteOffset, bool $littleEndian = false): int {}
+    public function getUint32(int $byteOffset, bool $littleEndian = false): int {}
+    public function getFloat32(int $byteOffset, bool $littleEndian = false): float {}
+    public function getFloat64(int $byteOffset, bool $littleEndian = false): float {}
+
+    public function setInt8(int $byteOffset, int $value): void {}
+    public function setUint8(int $byteOffset, int $value): void {}
+    public function setInt16(int $byteOffset, int $value, bool $littleEndian = false): void {}
+    public function setUint16(int $byteOffset, int $value, bool $littleEndian = false): void {}
+    public function setInt32(int $byteOffset, int $value, bool $littleEndian = false): void {}
+    public function setUint32(int $byteOffset, int $value, bool $littleEndian = false): void {}
+    public function setFloat32(int $byteOffset, float $value, bool $littleEndian = false): void {}
+    public function setFloat64(int $byteOffset, float $value, bool $littleEndian = false): void {}
+
+    public function __serialize(): array {}
+    public function __unserialize(array $data): void {}
+}

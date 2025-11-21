@@ -69,6 +69,15 @@ typedef struct _buffer_view_iterator {
 	zval current;
 } buffer_view_iterator;
 
+typedef struct _data_view_object {
+	zval buffer_zval;
+	uint8_t *buffer;
+	size_t byte_offset;
+	size_t byte_length;
+
+	zend_object std;
+} data_view_object;
+
 static inline buffer_object * php_buffer_fetch_object(zend_object *obj) {
       return (buffer_object *)((char *)obj - XtOffsetOf(buffer_object, std));
 }
@@ -78,6 +87,11 @@ static inline buffer_view_object * php_buffer_view_fetch_object(zend_object *obj
       return (buffer_view_object *)((char *)obj - XtOffsetOf(buffer_view_object, std));
 }
 #define Z_BUFFER_VIEW_OBJ_P(zvp) php_buffer_view_fetch_object(Z_OBJ_P(zvp));
+
+static inline data_view_object * php_data_view_fetch_object(zend_object *obj) {
+      return (data_view_object *)((char *)obj - XtOffsetOf(data_view_object, std));
+}
+#define Z_DATA_VIEW_OBJ_P(zvp) php_data_view_fetch_object(Z_OBJ_P(zvp));
 
 #endif
 

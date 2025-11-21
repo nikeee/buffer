@@ -60,6 +60,100 @@ ZEND_END_ARG_INFO()
 
 #define arginfo_class_DoubleArray_offsetGet arginfo_class_FloatArray_offsetGet
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_class_DataView___construct, 0, 0, 1)
+	ZEND_ARG_OBJ_INFO(0, buffer, ArrayBuffer, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, byteOffset, IS_LONG, 0, "0")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, byteLength, IS_LONG, 1, "null")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getInt8, 0, 1, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getUint8, 0, 1, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getInt16, 0, 1, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getUint16, 0, 1, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getInt32, 0, 1, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_class_DataView_getUint32, 0, 1, MAY_BE_LONG|MAY_BE_DOUBLE)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getFloat32, 0, 1, IS_DOUBLE, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_getFloat64, 0, 1, IS_DOUBLE, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setInt8, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setUint8, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setInt16, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setUint16, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setInt32, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setUint32, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setFloat32, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_DOUBLE, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_DataView_setFloat64, 0, 2, IS_VOID, 0)
+	ZEND_ARG_TYPE_INFO(0, byteOffset, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO(0, value, IS_DOUBLE, 0)
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, littleEndian, _IS_BOOL, 0, "false")
+ZEND_END_ARG_INFO()
+
+#define arginfo_class_DataView___serialize arginfo_class_ArrayBuffer___serialize
+
+#define arginfo_class_DataView___unserialize arginfo_class_ArrayBuffer___unserialize
+
 
 ZEND_METHOD(ArrayBuffer, __construct);
 ZEND_METHOD(ArrayBuffer, __serialize);
@@ -72,6 +166,25 @@ ZEND_METHOD(TypedArray, offsetUnset);
 ZEND_METHOD(TypedArray, getIterator);
 ZEND_METHOD(TypedArray, __serialize);
 ZEND_METHOD(TypedArray, __unserialize);
+ZEND_METHOD(DataView, __construct);
+ZEND_METHOD(DataView, getInt8);
+ZEND_METHOD(DataView, getUint8);
+ZEND_METHOD(DataView, getInt16);
+ZEND_METHOD(DataView, getUint16);
+ZEND_METHOD(DataView, getInt32);
+ZEND_METHOD(DataView, getUint32);
+ZEND_METHOD(DataView, getFloat32);
+ZEND_METHOD(DataView, getFloat64);
+ZEND_METHOD(DataView, setInt8);
+ZEND_METHOD(DataView, setUint8);
+ZEND_METHOD(DataView, setInt16);
+ZEND_METHOD(DataView, setUint16);
+ZEND_METHOD(DataView, setInt32);
+ZEND_METHOD(DataView, setUint32);
+ZEND_METHOD(DataView, setFloat32);
+ZEND_METHOD(DataView, setFloat64);
+ZEND_METHOD(DataView, __serialize);
+ZEND_METHOD(DataView, __unserialize);
 
 
 static const zend_function_entry class_ArrayBuffer_methods[] = {
@@ -138,6 +251,29 @@ static const zend_function_entry class_FloatArray_methods[] = {
 
 static const zend_function_entry class_DoubleArray_methods[] = {
 	ZEND_MALIAS(TypedArray, offsetGet, offsetGet, arginfo_class_DoubleArray_offsetGet, ZEND_ACC_PUBLIC)
+	ZEND_FE_END
+};
+
+static const zend_function_entry class_DataView_methods[] = {
+	ZEND_ME(DataView, __construct, arginfo_class_DataView___construct, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getInt8, arginfo_class_DataView_getInt8, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getUint8, arginfo_class_DataView_getUint8, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getInt16, arginfo_class_DataView_getInt16, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getUint16, arginfo_class_DataView_getUint16, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getInt32, arginfo_class_DataView_getInt32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getUint32, arginfo_class_DataView_getUint32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getFloat32, arginfo_class_DataView_getFloat32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, getFloat64, arginfo_class_DataView_getFloat64, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setInt8, arginfo_class_DataView_setInt8, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setUint8, arginfo_class_DataView_setUint8, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setInt16, arginfo_class_DataView_setInt16, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setUint16, arginfo_class_DataView_setUint16, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setInt32, arginfo_class_DataView_setInt32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setUint32, arginfo_class_DataView_setUint32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setFloat32, arginfo_class_DataView_setFloat32, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, setFloat64, arginfo_class_DataView_setFloat64, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, __serialize, arginfo_class_DataView___serialize, ZEND_ACC_PUBLIC)
+	ZEND_ME(DataView, __unserialize, arginfo_class_DataView___unserialize, ZEND_ACC_PUBLIC)
 	ZEND_FE_END
 };
 
@@ -248,6 +384,17 @@ static zend_class_entry *register_class_DoubleArray(zend_class_entry *class_entr
 	INIT_CLASS_ENTRY(ce, "DoubleArray", class_DoubleArray_methods);
 	class_entry = zend_register_internal_class_ex(&ce, class_entry_TypedArray);
 	class_entry->ce_flags |= ZEND_ACC_FINAL;
+
+	return class_entry;
+}
+
+static zend_class_entry *register_class_DataView(void)
+{
+	zend_class_entry ce, *class_entry;
+
+	INIT_CLASS_ENTRY(ce, "DataView", class_DataView_methods);
+	class_entry = zend_register_internal_class_ex(&ce, NULL);
+	class_entry->ce_flags |= ZEND_ACC_FINAL|ZEND_ACC_NO_DYNAMIC_PROPERTIES;
 
 	return class_entry;
 }
